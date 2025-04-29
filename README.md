@@ -58,3 +58,12 @@ ProjectSettings/
 .gitignore          
 -  忽略缓存与编译临时文件  
 -  캐시 및 임시 빌드 파일 무시
+
+---
+### 📦 素材来源 / 에셋 출처
+
+- **Sketchfab**  
+  🔗 [https://sketchfab.com](https://sketchfab.com)  
+  查找并下载免费和付费 3D 模型（支持 Unity）  
+  무료 및 유료 3D 모델 검색 및 다운로드 (Unity 지원)
+---
