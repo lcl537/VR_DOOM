@@ -7,6 +7,8 @@ public class JumpHandler : MonoBehaviour
     public InputActionReference jumpAction;
     public float jumpForce = 5f;
     public float gravity = -9.81f;
+    public float groundCheckDistance = 0.2f;
+    public LayerMask groundLayer;
 
     private CharacterController controller;
     private float verticalVelocity = 0f;
@@ -30,10 +32,10 @@ public class JumpHandler : MonoBehaviour
 
     void Update()
     {
-        isGrounded = controller.isGrounded;
+        isGrounded = CheckGrounded();
 
         if (isGrounded && verticalVelocity < 0)
-            verticalVelocity = -1f;
+            verticalVelocity = -1f; 
 
         verticalVelocity += gravity * Time.deltaTime;
 
@@ -43,9 +45,23 @@ public class JumpHandler : MonoBehaviour
 
     void OnJump(InputAction.CallbackContext context)
     {
-        if (isGrounded)
+        if (CheckGrounded()) 
         {
             verticalVelocity = jumpForce;
         }
+    }
+
+    /// <summary>
+  
+    /// </summary>
+    bool CheckGrounded()
+    {
+        if (controller.isGrounded)
+            return true;
+
+        Vector3 rayStart = transform.position + Vector3.up * 0.1f;
+        bool hit = Physics.Raycast(rayStart, Vector3.down, groundCheckDistance + 0.1f, groundLayer);
+        Debug.DrawRay(rayStart, Vector3.down * (groundCheckDistance + 0.1f), hit ? Color.green : Color.red);
+        return hit;
     }
 }
