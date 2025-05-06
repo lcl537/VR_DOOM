@@ -3333,6 +3333,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Fire_control",
+            "id": "f3522d7b-49c3-48af-a216-55378e9a8f66",
+            "actions": [
+                {
+                    "name": "TestValue",
+                    "type": "Value",
+                    "id": "ca11cce6-ebf7-4b3b-87ea-ea6ac7f80422",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "66d47ccc-17f8-426a-9edb-662c264e4a63",
+                    "path": "<XRController>{RightHand}/{Trigger}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TestValue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

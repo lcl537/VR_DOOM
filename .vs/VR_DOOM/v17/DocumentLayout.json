@@ -1,14 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\VR_DOOM\\",
+  "WorkspaceRootPath": "D:\\unity\\code\\VR_DOOM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VR_DOOM\\Assets\\Code\\JumpHandler.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Code\\JumpHandler.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VR_DOOM\\Assets\\Code\\SimpleLocomotion.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Code\\SimpleLocomotion.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\unity\\code\\VR_DOOM\\Assets\\Code\\XRInputTest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Code\\XRInputTest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,26 +19,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "JumpHandler.cs",
-              "DocumentMoniker": "D:\\VR_DOOM\\Assets\\Code\\JumpHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\JumpHandler.cs",
-              "ToolTip": "D:\\VR_DOOM\\Assets\\Code\\JumpHandler.cs",
-              "RelativeToolTip": "Assets\\Code\\JumpHandler.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAACUAAAAkAAAAAAAAAA==",
+              "Title": "XRInputTest.cs",
+              "DocumentMoniker": "D:\\unity\\code\\VR_DOOM\\Assets\\Code\\XRInputTest.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\XRInputTest.cs",
+              "ToolTip": "D:\\unity\\code\\VR_DOOM\\Assets\\Code\\XRInputTest.cs",
+              "RelativeToolTip": "Assets\\Code\\XRInputTest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T13:38:35.529Z",
+              "WhenOpened": "2025-05-06T03:41:04.741Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SimpleLocomotion.cs",
-              "DocumentMoniker": "D:\\VR_DOOM\\Assets\\Code\\SimpleLocomotion.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\SimpleLocomotion.cs",
-              "ToolTip": "D:\\VR_DOOM\\Assets\\Code\\SimpleLocomotion.cs",
-              "RelativeToolTip": "Assets\\Code\\SimpleLocomotion.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T14:35:02.403Z"
             }
           ]
         }
