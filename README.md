@@ -66,4 +66,18 @@ ProjectSettings/
   🔗 [https://sketchfab.com](https://sketchfab.com)  
   查找并下载免费和付费 3D 模型（支持 Unity）  
   무료 및 유료 3D 모델 검색 및 다운로드 (Unity 지원)
+  
+- **Ammo Box**
+  - Source: Unity Asset Store
+  - Name: Ammo Box
+  - Author: Beatheart Creative Studio
+  - Link: https://assetstore.unity.com/packages/3d/props/weapons/ammo-box-7701
+  - Usage: Used as Ammo Pickup in this project
+
+- **First aid jar**
+  - Source: Unity Asset Store
+  - Name: First aid jar
+  - Author: SIUP
+  - Link: https://assetstore.unity.com/packages/3d/props/first-aid-jar-285566
+  - Usage: Used as Health Pickup in this project
 ---
