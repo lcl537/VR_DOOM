@@ -43,45 +43,63 @@ public class UIStatusManager : MonoBehaviour
     {
         if (decreaseHealthAction.action.triggered)
         {
-            health = Mathf.Max(0, health - 10);
-            UpdateUI();
+            ChangeHealth(-10);
         }
 
         if (increaseHealthAction.action.triggered)
         {
-            health = Mathf.Min(100, health + 10);
-            UpdateUI();
+            ChangeHealth(10);
         }
 
         if (decreaseAmmoAction.action.triggered)
         {
-            ammo = Mathf.Max(0, ammo - 5);
-            UpdateUI();
+            ChangeAmmo(-5);
         }
 
         if (increaseAmmoAction.action.triggered)
         {
-            ammo += 5;
-            UpdateUI();
+            ChangeAmmo(5);
         }
 
         if (decreaseArmorAction.action.triggered)
         {
-            armor = Mathf.Max(0, armor - 5);
-            UpdateUI();
+            ChangeArmor(-5);
         }
 
         if (increaseArmorAction.action.triggered)
         {
-            armor += 5;
-            UpdateUI();
+            ChangeArmor(5);
         }
 
         if (increaseExploreAction.action.triggered)
         {
-            exploreRate = Mathf.Min(100f, exploreRate + 5f);
-            UpdateUI();
+            ChangeExplore(5f);
         }
+    }
+
+    // 公共加减方法（供按键和触碰调用）
+    public void ChangeHealth(int amount)
+    {
+        health = Mathf.Clamp(health + amount, 0, 100);
+        UpdateUI();
+    }
+
+    public void ChangeAmmo(int amount)
+    {
+        ammo = Mathf.Max(0, ammo + amount);
+        UpdateUI();
+    }
+
+    public void ChangeArmor(int amount)
+    {
+        armor = Mathf.Max(0, armor + amount);
+        UpdateUI();
+    }
+
+    public void ChangeExplore(float amount)
+    {
+        exploreRate = Mathf.Min(100f, exploreRate + amount);
+        UpdateUI();
     }
 
     public void UpdateUI()
@@ -90,5 +108,25 @@ public class UIStatusManager : MonoBehaviour
         ammoText.text = "Ammo: " + ammo;
         armorText.text = "Armor: " + armor;
         exploreText.text = "Explore: " + exploreRate + "%";
+    }
+
+    // 拾取道具时调用
+    public void PickupItem(string type, int amount)
+    {
+        switch (type)
+        {
+            case "Health":
+                ChangeHealth(amount);
+                break;
+            case "Ammo":
+                ChangeAmmo(amount);
+                break;
+            case "Armor":
+                ChangeArmor(amount);
+                break;
+            case "Explore":
+                ChangeExplore(amount);
+                break;
+        }
     }
 }
