@@ -74,4 +74,10 @@ ProjectSettings/
   - Link: https://assetstore.unity.com/packages/3d/props/weapons/ammo-box-7701
   - Usage: Used as Ammo Pickup in this project
 
+- **First aid jar**
+  - Source: Unity Asset Store
+  - Name: First aid jar
+  - Author: SIUP
+  - Link: https://assetstore.unity.com/packages/3d/props/first-aid-jar-285566
+  - Usage: Used as Health Pickup in this project
 ---
