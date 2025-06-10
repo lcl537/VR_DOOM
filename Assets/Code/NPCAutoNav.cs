@@ -9,27 +9,24 @@ public class Patrol : MonoBehaviour
 
     public Transform playerTransform;
 
-    [SerializeField] Vector3 offset = Vector3.back;
-    [SerializeField] float distance = 3;
-
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
 
+        // 确保由 NavMeshAgent 控制转向和移动
+        agent.updateRotation = true;
+        agent.updatePosition = true;
+
         GotoNextPoint();
     }
 
-    void follwoPlayer()
+    void FollowPlayer()
     {
         if (playerTransform == null) return;
 
-        offset = -playerTransform.forward * distance;
-
-        Vector3 targetPos = playerTransform.position + offset;
-        targetPos.y = transform.position.y;
-
-        agent.destination = targetPos;
+        // 直接设置目标位置，NavMeshAgent 会自动转向
+        agent.SetDestination(playerTransform.position);
     }
 
     void GotoNextPoint()
@@ -37,7 +34,7 @@ public class Patrol : MonoBehaviour
         if (points.Length == 0)
             return;
 
-        agent.destination = points[destPoint].position;
+        agent.SetDestination(points[destPoint].position);
         destPoint = (destPoint + 1) % points.Length;
     }
 
@@ -45,23 +42,23 @@ public class Patrol : MonoBehaviour
     {
         if (playerTransform)
         {
-            follwoPlayer();
+            FollowPlayer();
         }
         else
         {
             if (!agent.pathPending && agent.remainingDistance < 0.5f)
                 GotoNextPoint();
 
-            checkSurround(transform.position, 5); // 范围
+            CheckSurround(transform.position, 5); // 5米感知范围
         }
     }
 
-    void checkSurround(Vector3 center, float radius)
+    void CheckSurround(Vector3 center, float radius)
     {
         Collider[] hitColliders = Physics.OverlapSphere(center, radius);
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.CompareTag("Player")) // 使用 Tag
+            if (hitCollider.CompareTag("Player"))
             {
                 playerTransform = hitCollider.transform;
                 break;
