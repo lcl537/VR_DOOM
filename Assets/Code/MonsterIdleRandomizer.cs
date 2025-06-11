@@ -24,6 +24,8 @@ public class MonsterChasePlayer : MonoBehaviour
     private bool isInAttack = false;
     private int currentIdle = -1;
 
+    public GameObject dropPrefab;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -163,7 +165,16 @@ public class MonsterChasePlayer : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("☠️ 怪物死亡！");
+
+            // 💎 生成掉落物体
+            if (dropPrefab != null)
+            {
+                Instantiate(dropPrefab, transform.position, Quaternion.identity);
+                Debug.Log("🎁 已生成掉落物！");
+            }
+
             Destroy(gameObject);
         }
     }
+
 }
