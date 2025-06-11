@@ -129,4 +129,10 @@ public class UIStatusManager : MonoBehaviour
                 break;
         }
     }
+
+    public int GetHealth()
+    {
+        return health;
+    }
+
 }
