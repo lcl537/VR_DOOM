@@ -129,4 +129,20 @@ public class UIStatusManager : MonoBehaviour
                 break;
         }
     }
+
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    public int GetAmmo()
+    {
+        return ammo;
+    }
+    public int GetArmor()
+    {
+        return armor;
+    }
+
+
 }

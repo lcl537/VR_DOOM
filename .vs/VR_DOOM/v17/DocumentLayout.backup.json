@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\unity\\code\\VR_DOOM\\",
+  "WorkspaceRootPath": "D:\\unity\\New_pro\\VR_DOOM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\unity\\code\\VR_DOOM\\Assets\\Code\\XRInputTest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Code\\XRInputTest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\unity\\New_pro\\VR_DOOM\\Assets\\Code\\NPCAutoNav.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Code\\NPCAutoNav.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "XRInputTest.cs",
-              "DocumentMoniker": "D:\\unity\\code\\VR_DOOM\\Assets\\Code\\XRInputTest.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\XRInputTest.cs",
-              "ToolTip": "D:\\unity\\code\\VR_DOOM\\Assets\\Code\\XRInputTest.cs",
-              "RelativeToolTip": "Assets\\Code\\XRInputTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "Title": "NPCAutoNav.cs",
+              "DocumentMoniker": "D:\\unity\\New_pro\\VR_DOOM\\Assets\\Code\\NPCAutoNav.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\NPCAutoNav.cs",
+              "ToolTip": "D:\\unity\\New_pro\\VR_DOOM\\Assets\\Code\\NPCAutoNav.cs",
+              "RelativeToolTip": "Assets\\Code\\NPCAutoNav.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T03:41:04.741Z",
+              "WhenOpened": "2025-06-10T11:59:22.618Z",
               "EditorCaption": ""
             }
           ]

@@ -3346,6 +3346,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Test_Grip",
+                    "type": "Value",
+                    "id": "c2ea9017-d6d0-4bf7-a3af-a6b294a621f4",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -3357,6 +3366,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "TestValue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6be89f69-ae66-40ea-b229-ee9c1d6938c9",
+                    "path": "<XRController>{RightHand}/grip",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Test_Grip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
