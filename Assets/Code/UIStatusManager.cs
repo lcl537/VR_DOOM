@@ -135,4 +135,14 @@ public class UIStatusManager : MonoBehaviour
         return health;
     }
 
+    public int GetAmmo()
+    {
+        return ammo;
+    }
+    public int GetArmor()
+    {
+        return armor;
+    }
+
+
 }

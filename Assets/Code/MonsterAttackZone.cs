@@ -2,18 +2,31 @@ using UnityEngine;
 
 public class MonsterAttackZone : MonoBehaviour
 {
-    public int damageAmount = 10;
+    public int totalDamage = 20;  // 怪物总伤害量
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // 查找 UIStatusManager 并执行扣血
+            // 查找 UIStatusManager
             UIStatusManager statusManager = other.GetComponentInChildren<UIStatusManager>();
             if (statusManager != null)
             {
-                statusManager.ChangeHealth(-damageAmount);
-                Debug.Log("💥 玩家进入攻击范围，扣血：" + damageAmount);
+                int currentArmor = statusManager.GetArmor();  // 读取当前护甲值
+
+                if (currentArmor > 0)
+                {
+                    // 有护甲，护甲扣10，血量扣10
+                    statusManager.ChangeArmor(-10);
+                    statusManager.ChangeHealth(-10);
+                    Debug.Log("💥 有护甲：护甲 -10，血量 -10");
+                }
+                else
+                {
+                    // 没护甲，血量直接扣20
+                    statusManager.ChangeHealth(-totalDamage);
+                    Debug.Log("💥 无护甲：血量 -20");
+                }
             }
             else
             {
@@ -22,3 +35,4 @@ public class MonsterAttackZone : MonoBehaviour
         }
     }
 }
+

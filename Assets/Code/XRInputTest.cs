@@ -5,26 +5,32 @@ using System.Collections.Generic;
 [System.Serializable]
 public class GunConfig
 {
-    public GameObject gunObject;            // 枪的 GameObject
-    public GameObject muzzleFlashPrefab;    // 枪的 muzzle flash
-    public Transform muzzlePoint;           // 发射点
-    public GameObject bulletPrefab;         // 子弹预制体（每把枪可以不同）
-    public float fireRate = 0.1f;           // 开火间隔（越小越快）
-    public float bulletSpeed = 50f;         // 子弹速度
+    public GameObject gunObject;
+    public GameObject muzzleFlashPrefab;
+    public Transform muzzlePoint;
+    public GameObject bulletPrefab;
+    public float fireRate = 0.1f;
+    public float bulletSpeed = 50f;
+    public AudioClip gunshotSound;
 }
 
 public class XRInputTest : MonoBehaviour
 {
     [Header("Input")]
-    public InputActionReference testValue;  // Trigger：开火
-    public InputActionReference testGrip;   // Grip：切换武器
+    public InputActionReference testValue;
+    public InputActionReference testGrip;
 
     [Header("Weapons")]
-    public List<GunConfig> gunConfigs;      // 所有武器配置
+    public List<GunConfig> gunConfigs;
     private int currentGunIndex = 0;
+
+    [Header("Audio")]
+    public AudioSource gunAudioSource;  // 手动挂载的音效播放器
 
     private float fireTimer = 0f;
     private bool isFiring = false;
+
+    private UIStatusManager uiStatusManager;
 
     void Start()
     {
@@ -36,6 +42,17 @@ public class XRInputTest : MonoBehaviour
         testGrip.action.Enable();
 
         ActivateGun(currentGunIndex);
+
+        uiStatusManager = FindFirstObjectByType<UIStatusManager>();
+        if (uiStatusManager == null)
+        {
+            Debug.LogWarning("未找到 UIStatusManager，弹药系统将无法工作！");
+        }
+
+        if (gunAudioSource == null)
+        {
+            Debug.LogWarning("未挂载 gunAudioSource！");
+        }
     }
 
     void Update()
@@ -53,6 +70,18 @@ public class XRInputTest : MonoBehaviour
 
     private void Fire()
     {
+        if (uiStatusManager == null)
+        {
+            Debug.LogWarning("UIStatusManager 未设置！");
+            return;
+        }
+
+        if (GetAmmo() <= 0)
+        {
+            Debug.Log("子弹不足！");
+            return;
+        }
+
         GunConfig gun = GetCurrentGun();
 
         if (gun.muzzleFlashPrefab != null && gun.muzzlePoint != null)
@@ -64,15 +93,28 @@ public class XRInputTest : MonoBehaviour
         if (gun.bulletPrefab != null && gun.muzzlePoint != null)
         {
             GameObject bullet = Instantiate(gun.bulletPrefab, gun.muzzlePoint.position, gun.muzzlePoint.rotation);
-            Rigidbody rb = bullet.GetComponent<Rigidbody>();
-            if (rb != null)
+
+            BulletFly fly = bullet.GetComponent<BulletFly>();
+            if (fly != null)
             {
-                rb.linearVelocity = gun.muzzlePoint.forward * gun.bulletSpeed;
+                fly.speed = gun.bulletSpeed;
             }
+
             Destroy(bullet, 3f);
         }
 
+        if (gun.gunshotSound != null && gunAudioSource != null)
+        {
+            gunAudioSource.PlayOneShot(gun.gunshotSound);
+        }
+
         Debug.Log("Fire!");
+        uiStatusManager.ChangeAmmo(-1);
+    }
+
+    private int GetAmmo()
+    {
+        return uiStatusManager.GetAmmo();
     }
 
     private void SwitchGun()

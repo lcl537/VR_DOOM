@@ -24,7 +24,9 @@ public class MonsterChasePlayer : MonoBehaviour
     private bool isInAttack = false;
     private int currentIdle = -1;
 
-    public GameObject dropPrefab;
+    [Header("Drop Items")]
+    public GameObject[] dropPrefabs; // 允许指定多个掉落物体
+
 
     void Start()
     {
@@ -167,11 +169,14 @@ public class MonsterChasePlayer : MonoBehaviour
             Debug.Log("☠️ 怪物死亡！");
 
             // 💎 生成掉落物体
-            if (dropPrefab != null)
+            if (dropPrefabs != null && dropPrefabs.Length > 0)
             {
-                Instantiate(dropPrefab, transform.position, Quaternion.identity);
-                Debug.Log("🎁 已生成掉落物！");
+                int index = Random.Range(0, dropPrefabs.Length);  // 随机索引
+                GameObject drop = dropPrefabs[index];
+                Instantiate(drop, transform.position, Quaternion.identity);
+                Debug.Log($"🎁 掉落了：{drop.name}");
             }
+
 
             Destroy(gameObject);
         }
