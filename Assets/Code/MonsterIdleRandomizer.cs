@@ -27,6 +27,10 @@ public class MonsterChasePlayer : MonoBehaviour
     [Header("Drop Items")]
     public GameObject[] dropPrefabs; // 允许指定多个掉落物体
 
+    [Header("Drop Settings")]
+    public Transform dropPoint;  // 掉落物生成位置（由外部赋值）
+
+
 
     void Start()
     {
@@ -169,12 +173,28 @@ public class MonsterChasePlayer : MonoBehaviour
             Debug.Log("☠️ 怪物死亡！");
 
             // 💎 生成掉落物体
-            if (dropPrefabs != null && dropPrefabs.Length > 0)
+            // 💎 50% 掉落概率
+            if (dropPrefabs != null && dropPrefabs.Length > 0 && Random.value < 0.5f)
             {
-                int index = Random.Range(0, dropPrefabs.Length);  // 随机索引
+                int index = Random.Range(0, dropPrefabs.Length);
                 GameObject drop = dropPrefabs[index];
-                Instantiate(drop, transform.position, Quaternion.identity);
-                Debug.Log($"🎁 掉落了：{drop.name}");
+
+                // 使用 dropPoint，如果没有则用默认高度
+                Vector3 dropPos = (dropPoint != null) ? dropPoint.position : transform.position + Vector3.up * 1f;
+
+                Instantiate(drop, dropPos, Quaternion.identity);
+                Debug.Log($"🎁 [掉落成功] 掉落了：{drop.name}");
+            }
+            else
+            {
+                Debug.Log("❌ [未掉落] 本次未触发掉落概率");
+            }
+
+
+            UIStatusManager uiManager = FindFirstObjectByType<UIStatusManager>();
+            if (uiManager != null)
+            {
+                uiManager.AddExploreByKill();
             }
 
 

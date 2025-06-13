@@ -25,6 +25,10 @@ public class UIStatusManager : MonoBehaviour
     private int armor = 20;
     private float exploreRate = 0f;
 
+    [Header("探索度设置")]
+    public int totalMonsters = 35; // 当前地图的怪物总数（可在 Inspector 修改）
+    private int killedMonsters = 0; // 当前已击杀的怪物数
+
     void Start()
     {
         // 启用所有 InputActionReference 的 action
@@ -99,15 +103,23 @@ public class UIStatusManager : MonoBehaviour
     public void ChangeExplore(float amount)
     {
         exploreRate = Mathf.Min(100f, exploreRate + amount);
+
+        // 储存到全局
+        if (ExploreData.Instance != null)
+        {
+            ExploreData.Instance.SetExplore(exploreRate);
+        }
+
         UpdateUI();
     }
+
 
     public void UpdateUI()
     {
         healthText.text = "Health: " + health;
         ammoText.text = "Ammo: " + ammo;
         armorText.text = "Armor: " + armor;
-        exploreText.text = "Explore: " + exploreRate + "%";
+        exploreText.text = $"Explore: {exploreRate:F2}%";
     }
 
     // 拾取道具时调用
@@ -142,6 +154,13 @@ public class UIStatusManager : MonoBehaviour
     public int GetArmor()
     {
         return armor;
+    }
+    public void AddExploreByKill()
+    {
+        killedMonsters++;
+        float perKillExplore = 100f / totalMonsters;
+        ChangeExplore(perKillExplore);
+        Debug.Log($"☑️ 击杀怪物：{killedMonsters}/{totalMonsters}，探索度 +{perKillExplore:F2}%");
     }
 
 
